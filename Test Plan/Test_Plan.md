@@ -1,9 +1,3 @@
-# KẾ HOẠCH KIỂM THỬ (TEST PLAN)
-**Dự án**: Website E-commerce Bán Hàng Online  
-**Phiên bản**: 1.0  
-**Ngày tạo**: 04/02/2026  
-
----
 
 ## 1. GIỚI THIỆU (INTRODUCTION)
 Tài liệu này mô tả kế hoạch kiểm thử cho dự án Website E-commerce. Mục đích là xác định phạm vi, phương pháp, tài nguyên và lịch trình cho quá trình kiểm thử thủ công (manual testing) để đảm bảo chất lượng phần mềm trước khi phát hành.
