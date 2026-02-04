@@ -86,4 +86,4 @@ Các chức năng chính sẽ được kiểm thử bao gồm các module sau:
 | Tổng hợp Báo cáo kiểm thử | 13/02/2026 | 13/02/2026 | Trưởng nhóm QA |
 
 ---
-**Phê duyệt bởi**: _________________ (Quản lý dự án)
+
