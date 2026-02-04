@@ -1,8 +1,4 @@
-# Báo cáo kiểm thử (Test Report)
 
-**Dự án**: E-commerce Website  
-**Ngày báo cáo**: 04/02/2026  
-**Người thực hiện**: Nhóm QA  
 
 ## 1. Tổng quan
 Đợt kiểm thử này tập trung vào các chức năng cốt lõi: Xác thực, Sản phẩm, Giỏ hàng và Thanh toán. Đã thực thi toàn bộ 45 Ca kiểm thử theo kế hoạch.
