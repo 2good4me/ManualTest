@@ -79,20 +79,3 @@ Các chức năng chính sẽ được kiểm thử trên trang https://automati
 | Dữ liệu test bị xóa định kỳ (do là web demo) | Thấp | Tạo dữ liệu mới mỗi lần test (Luôn bắt đầu bằng Signup). |
 | Quảng cáo che khuất phần tử | Cao | Sử dụng Adblock nếu được phép hoặc test cẩn thận trên Mobile. |
 
-## 7. VAI TRÒ & TRÁCH NHIỆM
-
-*   **Trưởng nhóm QA**: Lên kế hoạch, xem xét Ca kiểm thử.
-*   **Nhân viên kiểm thử**: Thực thi test trên web Automation Exercise, log bug.
-*   *(Lưu ý: Không có Developer fix bug vì đây là web public)*
-
-## 8. LỊCH TRÌNH KIỂM THỬ
-
-| Hoạt động | Ngày bắt đầu | Ngày kết thúc | Trách nhiệm |
-| :--- | :--- | :--- | :--- |
-| Tìm hiểu cấu trúc web Automation Exercise | 01/02/2026 | 02/02/2026 | Nhóm QA |
-| Cập nhật Test Case cho phù hợp | 03/02/2026 | 05/02/2026 | Nhóm QA |
-| Thực thi Test trên web thật | 06/02/2026 | 08/02/2026 | Nhóm QA |
-| Tổng hợp Báo cáo & Metrics | 13/02/2026 | 13/02/2026 | Trưởng nhóm QA |
-
----
-**Phê duyệt bởi**: _________________ (Quản lý dự án)
