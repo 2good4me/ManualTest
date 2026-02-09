@@ -1,8 +1,4 @@
-# Báo cáo kiểm thử (Test Report)
 
-**Dự án**: Website Automation Exercise (https://automationexercise.com)
-**Ngày báo cáo**: 04/02/2026
-**Người thực hiện**: Nhóm QA
 
 ## 1. Tổng quan
 Đợt kiểm thử tập trung vào các luồng nghiệp vụ chính trên trang Automation Exercise: User Flow (Đăng ký/Login), Product Flow (Tìm kiếm/Lọc) và Checkout Flow (Thanh toán giả lập).
