@@ -1,20 +1,20 @@
 # Ca Kiểm Thử - Module Xác thực
-**Website**: https://automationexercise.com
+**Website**: https://www.saucedemo.com
 
 | Mã TC | Tiêu đề | Điều kiện trước | Các bước thực hiện | Kết quả mong đợi | Độ ưu tiên | Loại |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **TC_AUTH_001** | Đăng ký thành công | Chưa đăng nhập | 1. Vào trang chủ, nhấn "Signup / Login"<br>2. Tại mục "New User Signup!", nhập Name và Email<br>3. Nhấn "Signup"<br>4. Điền thông tin chi tiết (Title, Password, Date of birth)<br>5. Chọn checkbox "Sign up for our newsletter!"<br>6. Điền thông tin Address<br>7. Nhấn "Create Account" | Hệ thống thông báo "ACCOUNT CREATED!", hiển thị nút "Continue" | Cao | Hợp lệ |
-| **TC_AUTH_002** | Đăng ký thất bại - Email đã tồn tại | Email "test@email.com" đã tồn tại | 1. Vào trang "Signup / Login"<br>2. Nhập Name và Email đã tồn tại<br>3. Nhấn "Signup" | Hệ thống hiển thị lỗi: "Email Address already exist!" | Cao | Không hợp lệ |
-| **TC_AUTH_003** | Đăng nhập thành công | Đã có tài khoản | 1. Vào trang "Signup / Login"<br>2. Tại mục "Login to your account", nhập Email & Password đúng<br>3. Nhấn "Login" | Đăng nhập thành công, menu hiển thị "Logged in as [Username]" | Nghiêm trọng | Hợp lệ |
-| **TC_AUTH_004** | Đăng nhập thất bại - Sai mật khẩu | Tài khoản tồn tại | 1. Nhập Email đúng<br>2. Nhập Mật khẩu sai<br>3. Nhấn "Login" | Hệ thống hiển thị lỗi: "Your email or password is incorrect!" | Cao | Không hợp lệ |
-| **TC_AUTH_005** | Đăng nhập thất bại - Sai Email | Email chưa đăng ký | 1. Nhập Email chưa đăng ký<br>2. Nhập Mật khẩu bất kỳ<br>3. Nhấn "Login" | Hệ thống hiển thị lỗi: "Your email or password is incorrect!" | Cao | Không hợp lệ |
-| **TC_AUTH_006** | Đăng xuất hệ thống | Đang đăng nhập | 1. Nhấn nút "Logout" trên thanh menu | Hệ thống đăng xuất, chuyển hướng về trang Login | Cao | Hợp lệ |
-| **TC_AUTH_007** | Đăng ký thất bại - Bỏ trống Email | Trang Signup | 1. Nhập Name<br>2. Bỏ trống Email<br>3. Nhấn Signup | Trình duyệt báo lỗi tại ô Email: "Please fill out this field" (Vui lòng điền vào trường này) | Thấp | Không hợp lệ |
-| **TC_AUTH_008** | Liên hệ (Contact Us) - Upload file | Tại trang Contact Us | 1. Nhập Name, Email, Subject, Message<br>2. Nhấn "Upload file" và chọn 1 ảnh<br>3. Nhấn Submit | Thông báo "Success! Your details have been submitted successfully." | Trung bình | Hợp lệ |
-| **TC_AUTH_009** | Xóa tài khoản (Delete Account) | Đang đăng nhập | 1. Nhấn nút "Delete Account" trên menu | Thông báo "ACCOUNT DELETED!", tài khoản bị xóa khỏi hệ thống | Cao | Hợp lệ |
-| **TC_AUTH_010** | Đăng nhập với tài khoản bị xóa | Tài khoản vừa xóa ở TC_009 | 1. Thử đăng nhập lại bằng email vừa xóa | Hệ thống hiển thị lỗi: "incorrect email or password!" | Trung bình | Không hợp lệ |
-| **TC_AUTH_011** | Kiểm tra hiển thị giao diện Login | Trang Login | 1. Quan sát bố cục form Login và Signup | Hai form hiển thị song song, rõ ràng, không bị vỡ khung | Thấp | Giao diện |
-| **TC_AUTH_012** | Đăng ký - Kiểm tra độ mạnh mật khẩu | Trang nhập thông tin Account | 1. Nhập mật khẩu < 4 ký tự<br>2. Hoàn tất form | Hệ thống cho phép tạo tài khoản (Không có validation độ mạnh mật khẩu) | Thấp | Bảo mật |
-| **TC_AUTH_013** | Submit form Signup rỗng | Trang Signup | 1. Không nhập gì<br>2. Nhấn Signup | Trình duyệt báo lỗi tại ô Name: "Please fill out this field" | Thấp | Không hợp lệ |
-| **TC_AUTH_014** | Subscription (Đăng ký nhận tin) - Email sai format | Footer trang chủ | 1. Nhập "abc" (không có @)<br>2. Nhấn mũi tên gửi | Trình duyệt báo lỗi tại ô Email: "Please include an '@' in the email address." | Thấp | Không hợp lệ |
-| **TC_AUTH_015** | Subscription (Đăng ký nhận tin) thành công | Footer trang chủ | 1. Nhập email hợp lệ<br>2. Nhấn mũi tên gửi | Thông báo "You have been successfully subscribed!" | Thấp | Hợp lệ |
+| **TC_AUTH_001** | Đăng nhập thành công (Standard User) | Trang Login | 1. Nhập User: `standard_user`<br>2. Nhập Pass: `secret_sauce`<br>3. Nhấn "Login" | Đăng nhập thành công, chuyển đến trang Inventory (/inventory.html) | Nghiêm trọng | Hợp lệ |
+| **TC_AUTH_002** | Đăng nhập thất bại - Bỏ trống Username | Trang Login | 1. Bỏ trống Username & Password<br>2. Nhấn "Login" | Hệ thống báo lỗi: "Epic sadface: Username is required" | Cao | Không hợp lệ |
+| **TC_AUTH_003** | Đăng nhập thất bại - Bỏ trống Password | Trang Login | 1. Nhập User: `standard_user`<br>2. Bỏ trống Password<br>3. Nhấn "Login" | Hệ thống báo lỗi: "Epic sadface: Password is required" | Cao | Không hợp lệ |
+| **TC_AUTH_004** | Đăng nhập thất bại - Sai Password | Trang Login | 1. Nhập User: `standard_user`<br>2. Nhập Pass: `wrong_pass`<br>3. Nhấn "Login" | Hệ thống báo lỗi: "Epic sadface: Username and password do not match any user in this service" | Cao | Không hợp lệ |
+| **TC_AUTH_005** | Đăng nhập thất bại - Tài khoản bị khóa (Locked Out) | Trang Login | 1. Nhập User: `locked_out_user`<br>2. Nhập Pass: `secret_sauce`<br>3. Nhấn "Login" | Hệ thống báo lỗi: "Epic sadface: Sorry, this user has been locked out." | Cao | Không hợp lệ |
+| **TC_AUTH_006** | Đăng xuất | Đã đăng nhập | 1. Nhấn Menu (Burger icon)<br>2. Nhấn "Logout" | Đăng xuất thành công, quay về màn hình Login | Cao | Hợp lệ |
+| **TC_AUTH_007** | Đăng nhập với Problem User (User lỗi) | Trang Login | 1. Nhập User: `problem_user`<br>2. Nhập Pass: `secret_sauce`<br>3. Nhấn "Login" | Đăng nhập thành công, nhưng hiển thị ảnh sản phẩm bị lỗi (hình con chó) | Trung bình | Hợp lệ |
+| **TC_AUTH_008** | Đăng nhập với Performance Glitch User (User lag) | Trang Login | 1. Nhập User: `performance_glitch_user`<br>2. Nhập Pass: `secret_sauce`<br>3. Nhấn "Login" | Đăng nhập thành công, nhưng mất nhiều thời gian hơn bình thường để load trang Inventory (> 3 giây) | Thấp | Hiệu năng |
+| **TC_AUTH_009** | Đăng nhập với Error User (User lỗi JS) | Trang Login | 1. Nhập User: `error_user`<br>2. Nhập Pass: `secret_sauce`<br>3. Nhấn "Login" | Đăng nhập thành công, nhưng các thao tác Add to cart có thể bị lỗi | Trung bình | Hợp lệ |
+| **TC_AUTH_010** | Đăng nhập với Visual User (User lỗi giao diện) | Trang Login | 1. Nhập User: `visual_user`<br>2. Nhập Pass: `secret_sauce`<br>3. Nhấn "Login" | Đăng nhập thành công, nhưng giao diện (UI) bị vỡ, lệch layout ở một số chỗ | Trung bình | Giao diện |
+| **TC_AUTH_011** | Bảo mật - Copy Paste Password | Trang Login | 1. Copy text `secret_sauce`<br>2. Paste vào ô Password | Cho phép paste (hoặc chặn tùy requirement - ở đây web cho phép) | Thấp | Bảo mật |
+| **TC_AUTH_012** | Kiểm tra hiển thị Password (Masking) | Trang Login | 1. Nhập password | Ký tự password hiển thị dạng dấu chấm đen (•) | Thấp | Bảo mật |
+| **TC_AUTH_013** | Đăng nhập bằng phím Enter | Trang Login | 1. Nhập User & Pass<br>2. Nhấn phím Enter | Đăng nhập thành công (tương đương click nút Login) | Thấp | UI/UX |
+| **TC_AUTH_014** | Kiểm tra nút đóng thông báo lỗi | Trang Login | 1. Gây ra lỗi login (để hiện thông báo đỏ)<br>2. Nhấn nút "X" trên thông báo lỗi | Thông báo lỗi biến mất | Thấp | Giao diện |
+| **TC_AUTH_015** | Đăng nhập sau khi Logout | Trang Login | 1. Đăng xuất<br>2. Đăng nhập lại ngay lập tức | Đăng nhập thành công bình thường | Trung bình | Hợp lệ |

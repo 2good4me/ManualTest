@@ -1,31 +1,30 @@
-
+# Báo cáo kiểm thử (Test Report)
+**Dự án**: Swag Labs (https://www.saucedemo.com)
+**Ngày báo cáo**: 04/02/2026
 
 ## 1. Tổng quan
-Đợt kiểm thử tập trung vào các luồng nghiệp vụ chính trên trang Automation Exercise: User Flow (Đăng ký/Login), Product Flow (Tìm kiếm/Lọc) và Checkout Flow (Thanh toán giả lập).
+Đợt kiểm thử thực hiện trên trang Swag Labs, tập trung vào việc kiểm thử các kịch bản người dùng khác nhau (`standard`, `problem`, `locked_out`) được cung cấp bởi nền tảng.
 
 ## 2. Kết quả thực thi
 | Loại | Số lượng | Tỷ lệ (%) |
 | :--- | :--- | :--- |
-| **Tổng số TC** | 45 | 100% |
-| **Đạt (Pass)** | 35 | 77.8% |
-| **Trượt (Fail)** | 10 | 22.2% |
-| **Chặn (Blocked)** | 0 | 0% |
+| **Tổng số TC** | 35 | 100% |
+| **Đạt (Pass)** | 28 | 80% |
+| **Trượt (Fail)** | 7 | 20% |
+*(Fail do test trên các user bị lỗi cố ý như problem_user)*
 
-## 3. Top 5 lỗi nghiêm trọng nhất
-*(Dựa trên danh sách lỗi đã tìm thấy trong quá trình test thực tế/giả lập)*
-
-1.  **BUG_CHK_004** (Nghiêm trọng): Lỗi Double Submission khi nhấn nút Pay nhiều lần, tạo đơn trùng.
-2.  **BUG_CART_008** (Nghiêm trọng): Hệ thống tính sai tiền khi nhập số lượng là số thập phân (2.5).
-3.  **BUG_PROD_002** (Lớn): Tìm kiếm sản phẩm không nhất quán giữa chữ Hoa và chữ Thường.
-4.  **BUG_AUTH_005** (Lớn): Form đăng ký nhận tin (Subscription) chấp nhận email sai định dạng.
-5.  **BUG_UI_006** (Lớn): Banner quảng cáo che khuất menu điều hướng trên giao diện Mobile.
+## 3. Top 5 lỗi điển hình
+1.  **BUG_AUTH_001**: Tài khoản `locked_out_user` bị chặn đăng nhập (Đây là tính năng, nhưng log thành bug để tracking behavior).
+2.  **BUG_UI_002**: Ảnh sản phẩm bị lỗi (hình con chó) khi dùng `problem_user`.
+3.  **BUG_CHK_003**: Không thể nhập đúng Last Name (bị ghi đè ký tự) khi dùng `problem_user`.
+4.  **BUG_PROD_004**: Hiệu năng tải trang chậm khi dùng `performance_glitch_user`.
+5.  **BUG_PROD_009**: Chức năng Sort Z-A không hoạt động với `problem_user`.
 
 ## 4. Nhận xét chất lượng
-*   **Chức năng**: Các luồng happy path hoạt động trơn tru. Tuy nhiên logic xử lý các trường hợp biên (số thập phân, submit liên tục) chưa tốt.
-*   **Giao diện**: Gặp vấn đề hiển thị trên Mobile do quảng cáo chèn vào nội dung. Font chữ chưa đồng bộ ở một số trang con.
-*   **Bảo mật**: Các form input cần validation chặt chẽ hơn (Subscription, Login password clear).
+*   **Standard User**: Hoạt động hoàn hảo, không có lỗi.
+*   **Special Users**: Hệ thống mô phỏng chính xác các lỗi (Error, Glitch, Lock) theo thiết kế test của Sauce Labs.
 
-## 5. Kết luận & Quyết định
-❌ **KHÔNG PHÁT HÀNH (NO-RELEASE)**
+## 5. Kết luận
+✅ **RELEASE** (Có thể phát hành - Với Standard User)
 
-**Lý do**: Tồn tại lỗi nghiêm trọng liên quan đến Thanh toán (Double Submission) và Tính toán giá tiền (Decimal quantity). Cần đội Dev khắc phục các lỗi Critical này trước khi Release.
+**Ghi chú**: Các lỗi tìm thấy ở trên là các lỗi "dự kiến" (Expected Bugs) của trang web demo này nhằm mục đích đào tạo. Nếu đây là sản phẩm thật, các bug này đều là Critical/Major.

@@ -1,81 +1,84 @@
 # KẾ HOẠCH KIỂM THỬ (TEST PLAN)
-**Dự án**: Website Automation Exercise (https://automationexercise.com)
-**Phiên bản**: 1.1
+**Dự án**: Website Swag Labs (https://www.saucedemo.com)
+**Phiên bản**: 2.0
 **Ngày tạo**: 04/02/2026
 
 ---
 
 ## 1. GIỚI THIỆU
-Tài liệu này mô tả kế hoạch kiểm thử cho dự án Website **Automation Exercise**. Đây là một trang web thương mại điện tử thực tế được sử dụng để thực hành kiểm thử tự động và thủ công. Mục đích là xác định phạm vi, phương pháp, tài nguyên và lịch trình cho quá trình kiểm thử thủ công.
+Tài liệu này mô tả kế hoạch kiểm thử cho dự án Website **Swag Labs** (còn gọi là SauceDemo). Đây là trang web mẫu của Sauce Labs mô phỏng cửa hàng bán đồ lưu niệm, được thiết kế đặc biệt để thực hành kiểm thử với các kịch bản lỗi có sẵn.
 
 Đối tượng của tài liệu này bao gồm: Đội quản lý dự án, Đội phát triển, và Đội kiểm thử.
 
 ## 2. PHẠM VI KIỂM THỬ
 
 ### 2.1 Trong phạm vi
-Các chức năng chính sẽ được kiểm thử trên trang https://automationexercise.com bao gồm:
+Các chức năng chính sẽ được kiểm thử trên trang https://www.saucedemo.com bao gồm:
 *   **Module 1: Xác thực (Authentication)**
-    *   Trang "Signup / Login".
-    *   Đăng ký tài khoản mới (New User Signup).
-    *   Đăng nhập tài khoản (Login to your account).
+    *   Đăng nhập với nhiều loại tài khoản:
+        *   `standard_user` (Người dùng chuẩn).
+        *   `locked_out_user` (Người dùng bị khóa).
+        *   `problem_user` (Người dùng gặp lỗi hệ thống).
+        *   `performance_glitch_user` (Người dùng gặp lỗi hiệu năng).
     *   Đăng xuất (Logout).
 *   **Module 2: Sản phẩm & Giỏ hàng (Products & Cart)**
-    *   Trang "Products": Tìm kiếm, lọc danh mục (Category/Brand).
-    *   Trang "Product Details": Xem chi tiết.
-    *   Trang "Cart": Thêm, cập nhật số lượng, xóa sản phẩm.
+    *   Trang "Inventory": Sắp xếp (Sort) sản phẩm (A-Z, Z-A, Price).
+    *   Trang "Item Detail": Xem chi tiết, Back to products.
+    *   Trang "Cart": Thêm, Xóa sản phẩm.
 *   **Module 3: Thanh toán (Checkout)**
-    *   Quy trình "Proceed to Checkout".
-    *   Nhập địa chỉ giao hàng.
-    *   Thanh toán (Payment).
-    *   Xóa tài khoản (phụ/nếu có).
+    *   Bước 1: Your Information (Nhập tên, Zip code).
+    *   Bước 2: Overview (Xem lại đơn hàng, phí thuế).
+    *   Bước 3: Finish (Hoàn tất).
 
-### 2.2 Ngoài phạm vi
-*   Kiểm thử hiệu năng (Tải/Chịu tải).
-*   Kiểm thử bảo mật chuyên sâu.
-*   Kiểm thử tự động (Automation) - *Trừ khi có yêu cầu riêng*.
-*   Các liên kết quảng cáo (Ads) trên trang.
+### 2.2 Ngoài phạm vi / Không áp dụng
+*   **Chức năng Đăng ký (Sign Up)**: Trang web này không hỗ trợ đăng ký mới (Sử dụng tài khoản có sẵn).
+*   Chức năng Quên mật khẩu (Không hỗ trợ).
+*   Kiểm thử hiệu năng, bảo mật chuyên sâu.
 
 ## 3. PHƯƠNG PHÁP KIỂM THỬ
 
 ### 3.1 Kiểm thử chức năng
-*   Đảm bảo tất cả các luồng hoạt động đúng trên môi trường Live.
-*   Thực hiện kiểm thử các trường hợp hợp lệ và không hợp lệ.
+*   Kiểm tra luồng đi (Happy Path) của chức năng mua hàng với `standard_user`.
+*   Kiểm tra các luồng lỗi (Exception Path) với các user đặc biệt (`locked_out`, `problem`).
 
 ### 3.2 Kiểm thử giao diện
-*   Kiểm tra tính hiển thị trên trình duyệt Chrome.
-*   Kiểm tra độ phản hồi (Responsive) cơ bản.
-
-### 3.3 Kiểm thử hồi quy
-*   Thực hiện Kiểm tra khói (Smoke Test) trên các luồng chính.
+*   Kiểm tra việc hiển thị hình ảnh sản phẩm (đặc biệt với `problem_user` sẽ bị lỗi ảnh).
+*   Kiểm tra Responsive trên Chrome/Mobile view.
 
 ## 4. MÔI TRƯỜNG KIỂM THỬ
 
 | Thành phần | Chi tiết |
 | :--- | :--- |
-| **URL Kiểm thử** | **https://automationexercise.com** |
+| **URL Kiểm thử** | **https://www.saucedemo.com** |
 | **Phần cứng** | Máy tính Windows Tiêu chuẩn |
-| **Hệ điều hành** | Windows 10/11 |
-| **Trình duyệt** | Google Chrome (Phiên bản mới nhất) |
-| **Mạng** | Internet ổn định (Truy cập Web Online) |
-| **Dữ liệu kiểm thử** | Tự tạo tài khoản test (Register New User) |
-| **Công cụ kiểm thử** | Excel/Google Sheets, Chụp màn hình (Snipping Tool) |
+| **Trình duyệt** | Google Chrome, Firefox, Edge |
+| **Dữ liệu kiểm thử** | Account: `standard_user`, `locked_out_user`, `problem_user`, `error_user`, `visual_user` / Pass: `secret_sauce` |
+| **Công cụ** | Excel, Snipping Tool |
 
 ## 5. ĐIỀU KIỆN VÀO / RA
 
 ### 5.1 Điều kiện bắt đầu
-*   Website https://automationexercise.com hoạt động bình thường.
-*   Tài liệu yêu cầu (dựa trên chức năng của web) đã được hiểu rõ.
-*   Môi trường mạng ổn định.
+*   Website truy cập bình thường.
+*   Nắm rõ các username và behavior (hành vi) của từng user.
 
 ### 5.2 Điều kiện kết thúc
-*   100% Ca kiểm thử Critical/High đã thực thi.
-*   Báo cáo đầy đủ các lỗi tìm thấy trên trang web thực tế.
+*   Hoàn thành 100% Test Case đã thiết kế.
+*   Báo cáo các bug đặc trưng của trang (như lỗi ảnh chó, lỗi sort,...).
 
 ## 6. RỦI RO & BIỆN PHÁP GIẢM THIỂU
 
 | Rủi ro | Mức độ | Biện pháp giảm thiểu |
 | :--- | :--- | :--- |
-| Website bảo trì hoặc không truy cập được | Trung bình | Kiểm tra trạng thái web trước khi test. Chụp ảnh màn hình làm bằng chứng. |
-| Dữ liệu test bị xóa định kỳ (do là web demo) | Thấp | Tạo dữ liệu mới mỗi lần test (Luôn bắt đầu bằng Signup). |
-| Quảng cáo che khuất phần tử | Cao | Sử dụng Adblock nếu được phép hoặc test cẩn thận trên Mobile. |
+| Không có chức năng đăng ký, thiếu case về Register | Cao | Bổ sung case về Login với nhiều kịch bản (User bị khóa, sai pass) để bù đắp số lượng. |
+| User session có thể bị reset khi refresh | Thấp | Test liên tục, không refresh nếu không cần thiết. |
 
+## 7. VAI TRÒ & TRÁCH NHIỆM
+*   QA Team: Thực hiện test thủ công.
+
+## 8. LỊCH TRÌNH KIỂM THỬ
+*   04/02/2026: Cập nhật tài liệu.
+*   05/02/2026: Thực thi test trên Swag Labs.
+*   06/02/2026: Báo cáo.
+
+---
+**Phê duyệt bởi**: _________________ (Job Lead)
