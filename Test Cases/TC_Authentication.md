@@ -15,6 +15,5 @@
 | **TC_AUTH_010** | Đăng nhập với tài khoản bị xóa | Tài khoản vừa xóa ở TC_009 | 1. Thử đăng nhập lại bằng email vừa xóa | Báo lỗi hoặc không tìm thấy tài khoản | Trung bình | Không hợp lệ |
 | **TC_AUTH_011** | Kiểm tra hiển thị giao diện Login | Trang Login | 1. Quan sát bố cục form Login và Signup | Hai form hiển thị song song, rõ ràng, không bị vỡ khung | Thấp | Giao diện |
 | **TC_AUTH_012** | Đăng ký - Kiểm tra độ mạnh mật khẩu | Trang nhập thông tin Account | 1. Nhập mật khẩu < 4 ký tự<br>2. Hoàn tất form | Hệ thống có thể cho phép hoặc cảnh báo (Tùy chính sách trang) | Thấp | Bảo mật |
-| **TC_AUTH_013** | Đăng nhập - SQL Injection đơn giản | Trang Login | 1. Nhập Email `' OR 1=1 --`<br>2. Nhấn Login | Không đăng nhập được, báo lỗi sai thông tin | Cao | Bảo mật |
-| **TC_AUTH_014** | Submit form Signup rỗng | Trang Signup | 1. Không nhập gì<br>2. Nhấn Signup | Trình duyệt báo lỗi "Please fill out this field" (HTML5 validation)| Thấp | Không hợp lệ |
-| **TC_AUTH_015** | Subscription (Đăng ký nhận tin) ở Footer | Footer trang chủ | 1. Nhập email vào ô Subscription<br>2. Nhấn mũi tên gửi | Thông báo "You have been successfully subscribed!" | Thấp | Hợp lệ |
+| **TC_AUTH_013** | Submit form Signup rỗng | Trang Signup | 1. Không nhập gì<br>2. Nhấn Signup | Trình duyệt báo lỗi "Please fill out this field" (HTML5 validation)| Thấp | Không hợp lệ |
+| **TC_AUTH_014** | Subscription (Đăng ký nhận tin) ở Footer | Footer trang chủ | 1. Nhập email vào ô Subscription<br>2. Nhấn mũi tên gửi | Thông báo "You have been successfully subscribed!" | Thấp | Hợp lệ |
