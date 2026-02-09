@@ -1,24 +1,25 @@
 # Ca Kiểm Thử - Module Sản phẩm & Giỏ hàng
+**Website**: https://automationexercise.com
 
 | Mã TC | Tiêu đề | Điều kiện trước | Các bước thực hiện | Kết quả mong đợi | Độ ưu tiên | Loại |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **TC_PROD_001** | Tìm kiếm sản phẩm tồn tại | Tại trang chủ | 1. Nhập từ khóa "Samsung"<br>2. Nhấn Enter | Hiển thị danh sách sản phẩm có tên chứa "Samsung" | Cao | Hợp lệ |
-| **TC_PROD_002** | Tìm kiếm sản phẩm không tồn tại | Tại trang chủ | 1. Nhập "xyzabc"<br>2. Nhấn Enter | Hiển thị thông báo "Không tìm thấy sản phẩm" | Trung bình | Không hợp lệ |
-| **TC_PROD_003** | Lọc sản phẩm theo khoảng giá | Tại trang danh sách | 1. Chọn khoảng giá 5tr - 10tr<br>2. Nhấn Lọc | Chỉ hiển thị các sản phẩm trong khoảng giá 5tr-10tr | Cao | Hợp lệ |
-| **TC_PROD_004** | Xem chi tiết sản phẩm | Tại trang danh sách | 1. Nhấn vào hình ảnh sản phẩm A | Chuyển đến trang chi tiết SP A, hiển thị đúng giá, mô tả | Cao | Hợp lệ |
-| **TC_PROD_005** | Kiểm tra hình ảnh sản phẩm (Phóng to) | Tại trang chi tiết | 1. Di chuột vào ảnh chính | Hình ảnh phóng to, rõ nét | Thấp | Giao diện |
-| **TC_PROD_006** | Thêm vào giỏ - Hàng còn trong kho | Trang chi tiết SP (còn hàng) | 1. Chọn số lượng 1<br>2. Nhấn "Thêm vào giỏ" | Thông báo thành công, biểu tượng giỏ hàng tăng số lượng lên 1 | Nghiêm trọng | Hợp lệ |
-| **TC_PROD_007** | Thêm vào giỏ - Hàng hết kho | Trang chi tiết SP (hết hàng) | 1. Kiểm tra nút "Thêm vào giỏ" | Nút bị vô hiệu hóa hoặc hiển thị "Hết hàng" | Cao | Không hợp lệ |
-| **TC_PROD_008** | Thêm vào giỏ - Số lượng tối đa | Trang chi tiết SP (Kho còn 5) | 1. Nhập số lượng 6<br>2. Nhấn "Thêm vào giỏ" | Báo lỗi không đủ số lượng trong kho | Trung bình | Không hợp lệ |
-| **TC_CART_009** | Xem giỏ hàng | Giỏ hàng có sản phẩm | 1. Nhấn biểu tượng Giỏ hàng | Hiển thị đúng danh sách SP, đơn giá, tổng tiền tạm tính | Cao | Hợp lệ |
-| **TC_CART_010** | Cập nhật số lượng - Tăng | Tại giỏ hàng | 1. Nhấn nút (+) tại SP A | Số lượng tăng lên 1, tổng tiền cập nhật đúng | Cao | Hợp lệ |
-| **TC_CART_011** | Cập nhật số lượng - Giảm | Tại giỏ hàng | 1. Nhấn nút (-) tại SP A (đang SL 2) | Số lượng giảm còn 1, tổng tiền cập nhật đúng | Cao | Hợp lệ |
-| **TC_CART_012** | Cập nhật số lượng - Nhập số âm | Tại giỏ hàng | 1. Nhập "-1" vào ô số lượng | Hệ thống tự đặt lại về 1 hoặc báo lỗi | Trung bình | Không hợp lệ |
-| **TC_CART_013** | Xóa sản phẩm khỏi giỏ | Tại giỏ hàng | 1. Nhấn nút "Xóa" (Biểu tượng thùng rác) | SP bị loại bỏ khỏi danh sách, tổng tiền cập nhật lại | Cao | Hợp lệ |
-| **TC_CART_014** | Xóa toàn bộ giỏ hàng | Giỏ hàng có nhiều SP | 1. Nhấn "Xóa tất cả" | Giỏ hàng trống, hiển thị thông báo "Chưa có sản phẩm" | Trung bình | Hợp lệ |
-| **TC_CART_015** | Kiểm tra tổng tiền | Giỏ có 2 SP (Giá A, Giá B) | 1. Tính tay: (A*sl) + (B*sl)<br>2. So sánh với hệ thống | Tổng tiền trên giao diện khớp với tính toán | Nghiêm trọng | Hợp lệ |
-| **TC_CART_016** | Tiếp tục mua sắm từ giỏ hàng | Tại giỏ hàng | 1. Nhấn "Tiếp tục mua sắm" | Quay lại trang sản phẩm trước đó hoặc trang chủ | Thấp | Hợp lệ |
-| **TC_CART_017** | Thêm sản phẩm cùng loại vào giỏ | Giỏ đã có SP A (SL 1) | 1. Vào trang chi tiết SP A<br>2. Thêm tiếp SL 2<br>3. Vào giỏ hàng kiểm tra | SP A không bị tách dòng, số lượng cập nhật thành 3 | Trung bình | Hợp lệ |
-| **TC_CART_018** | Kiểm tra lưu giỏ hàng (Sau khi Đăng nhập) | Chưa đăng nhập, thêm hàng vào giỏ | 1. Đăng nhập tài khoản<br>2. Kiểm tra giỏ hàng | Giỏ hàng được đồng bộ (Gộp) với tài khoản | Trung bình | Hợp lệ |
-| **TC_CART_019** | Kiểm tra nhập ký tự đặc biệt ô tìm kiếm | Trang chủ | 1. Nhập "%$#@" vào ô tìm kiếm<br>2. Enter | Hệ thống xử lý an toàn, không lỗi crash (Kiểm tra SQLi cơ bản) | Thấp | Bảo mật |
-| **TC_CART_020** | Kiểm tra biên giá trị - Số lượng 999 | Trang chi tiết | 1. Nhập 999<br>2. Thêm giỏ | Hệ thống cho phép hoặc báo giới hạn (tùy nghiệp vụ) - Kiểm tra biên | Thấp | Giá trị biên |
+| **TC_PROD_001** | Xem danh sách sản phẩm | Trang chủ | 1. Nhấn menu "Products" | Chuyển đến trang `/products`, hiển thị danh sách "ALL PRODUCTS" | Cao | Hợp lệ |
+| **TC_PROD_002** | Xem chi tiết sản phẩm | Trang Products | 1. Nhấn "View Product" tại SP đầu tiên | Chuyển trang Product Detail, hiển thị: Tên, Giá, Availability, Condition, Brand | Cao | Hợp lệ |
+| **TC_PROD_003** | Tìm kiếm sản phẩm | Trang Products | 1. Nhập "Dress" vào ô Search Product<br>2. Nhấn biểu tượng kính lúp | Hiển thị danh sách "SEARCHED PRODUCTS" chứa từ khóa "Dress" | Cao | Hợp lệ |
+| **TC_PROD_004** | Tìm kiếm sản phẩm không có kết quả | Trang Products | 1. Nhập "khongtimthay123"<br>2. Nhấn tìm kiếm | Danh sách trống hoặc không hiển thị sản phẩm nào | Trung bình | Không hợp lệ |
+| **TC_PROD_005** | Thêm 1 sản phẩm vào giỏ (Từ trang chủ) | Trang chủ | 1. Hover vào sản phẩm đầu tiên<br>2. Nhấn "Add to cart" | Hiển thị Popup "Added!", nút "View Cart" và "Continue Shopping" | Nghiêm trọng | Hợp lệ |
+| **TC_PROD_006** | Thêm sản phẩm vào giỏ (Từ trang chi tiết) | Trang chi tiết SP | 1. Nhập Quantity = 3<br>2. Nhấn "Add to cart" | Hiển thị Popup xác nhận thêm thành công | Cao | Hợp lệ |
+| **TC_PROD_007** | Xác minh sản phẩm trong giỏ hàng | Đã thêm SP | 1. Nhấn menu "Cart" hoặc link "View Cart" trên popup | Vào trang `/view_cart`. Hiển thị đúng: Hình ảnh, Tên, Giá, Số lượng, Tổng tiền | Nghiêm trọng | Hợp lệ |
+| **TC_CART_008** | Xóa sản phẩm khỏi giỏ | Giỏ hàng có SP | 1. Nhấn nút "X" (Delete) bên cạnh sản phẩm | Sản phẩm biến mất khỏi danh sách | Cao | Hợp lệ |
+| **TC_CART_009** | Thêm sản phẩm cùng loại (Cộng dồn) | Giỏ đã có SP A (SL 1) | 1. Thêm tiếp SP A với SL 1 nữa<br>2. Vào Cart kiểm tra | SP A hiển thị 1 dòng với SL = 2 (hoặc tách dòng tùy web, web này thường tách dòng nếu session khác) | Trung bình | Hợp lệ |
+| **TC_CART_010** | Lọc sản phẩm theo Category (Women - Dress) | Trang Products | 1. Sidebar trái: Nhấn "Women"<br>2. Nhấn "Dress" | Hiển thị danh sách "WOMEN - DRESS PRODUCTS" | Trung bình | Hợp lệ |
+| **TC_CART_011** | Lọc sản phẩm theo Brand (Polo) | Trang Products | 1. Sidebar trái: Mục Brands, nhấn "Polo" | Hiển thị danh sách sản phẩm thương hiệu Polo | Trung bình | Hợp lệ |
+| **TC_CART_012** | Review sản phẩm (Viết đánh giá) | Trang chi tiết SP | 1. Nhập Name, Email<br>2. Viết Review<br>3. Nhấn Submit | Thông báo "Thank you for your review." | Thấp | Hợp lệ |
+| **TC_CART_013** | Review sản phẩm - Thiếu thông tin | Trang chi tiết SP | 1. Bỏ trống Name/Email<br>2. Nhấn Submit | Báo lỗi hoặc tooltip yêu cầu nhập đủ | Thấp | Không hợp lệ |
+| **TC_CART_014** | Kiểm tra hiển thị Recommended Items | Footer trang chủ | 1. Cuộn xuống dưới cùng<br>2. Xem phần "RECOMMENDED ITEMS" | Slider hoạt động, có thể add to cart từ đây | Thấp | Giao diện |
+| **TC_CART_015** | Đăng ký khi đang Checkout (Luồng kết hợp) | Giỏ có hàng, chưa login | 1. Vào Cart -> Proceed to Checkout<br>2. Popup yêu cầu Login -> Nhấn "Register / Login"<br>3. Tạo tài khoản mới | Sau khi tạo xong, nhấn Cart -> Checkout, hệ thống cho phép tiếp tục | Cao | Hợp lệ |
+| **TC_CART_016** | Kiểm tra tính đúng đắn của giá (Total Price) | Giỏ hàng | 1. Kiểm tra: Price * Quantity = Total | Phép tính đúng cho từng dòng sản phẩm | Nghiêm trọng | Hợp lệ |
+| **TC_CART_017** | Nhập Quantity số âm hoặc 0 | Trang chi tiết SP | 1. Nhập Quantity = -1<br>2. Add to cart | Hệ thống tự chỉnh về 1 hoặc báo lỗi | Trung bình | Giá trị biên |
+| **TC_CART_018** | Thêm sản phẩm vào giỏ hàng trống | Giỏ hàng trống | 1. Vào trang Cart | Hiển thị "Cart is empty!" hoặc danh sách rỗng | Thấp | Hợp lệ |
+| **TC_CART_019** | Kiểm tra điều hướng Breadcrumb | Trang Product Detail | 1. Nhấn vào Home > Product trên breadcrumb | Điều hướng về đúng trang cha | Thấp | Giao diện |
+| **TC_CART_020** | Scroll Up / Scroll Down (Mũi tên lên) | Trang chủ | 1. Cuộn xuống cuối<br>2. Nhấn nút mũi tên lên (góc phải) | Trang tự cuộn mượt mà lên đầu trang | Thấp | Giao diện |

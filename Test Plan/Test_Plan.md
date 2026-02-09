@@ -1,89 +1,98 @@
+# KẾ HOẠCH KIỂM THỬ (TEST PLAN)
+**Dự án**: Website Automation Exercise (https://automationexercise.com)
+**Phiên bản**: 1.1
+**Ngày tạo**: 04/02/2026
+
+---
+
 ## 1. GIỚI THIỆU
-Tài liệu này mô tả kế hoạch kiểm thử cho dự án Website E-commerce. Mục đích là xác định phạm vi, phương pháp, tài nguyên và lịch trình cho quá trình kiểm thử thủ công để đảm bảo chất lượng phần mềm trước khi phát hành.
+Tài liệu này mô tả kế hoạch kiểm thử cho dự án Website **Automation Exercise**. Đây là một trang web thương mại điện tử thực tế được sử dụng để thực hành kiểm thử tự động và thủ công. Mục đích là xác định phạm vi, phương pháp, tài nguyên và lịch trình cho quá trình kiểm thử thủ công.
 
 Đối tượng của tài liệu này bao gồm: Đội quản lý dự án, Đội phát triển, và Đội kiểm thử.
 
 ## 2. PHẠM VI KIỂM THỬ
 
 ### 2.1 Trong phạm vi
-Các chức năng chính sẽ được kiểm thử bao gồm các module sau:
-*   **Module 1: Xác thực**
-    *   Đăng ký, Đăng nhập, Đăng xuất, Quên mật khẩu.
-*   **Module 2: Sản phẩm & Giỏ hàng**
-    *   Tìm kiếm, Lọc sản phẩm, Xem chi tiết.
-    *   Thêm/Sửa/Xóa sản phẩm trong giỏ hàng.
-*   **Module 3: Thanh toán**
-    *   Đặt hàng, Thanh toán, Lịch sử đơn hàng.
+Các chức năng chính sẽ được kiểm thử trên trang https://automationexercise.com bao gồm:
+*   **Module 1: Xác thực (Authentication)**
+    *   Trang "Signup / Login".
+    *   Đăng ký tài khoản mới (New User Signup).
+    *   Đăng nhập tài khoản (Login to your account).
+    *   Đăng xuất (Logout).
+*   **Module 2: Sản phẩm & Giỏ hàng (Products & Cart)**
+    *   Trang "Products": Tìm kiếm, lọc danh mục (Category/Brand).
+    *   Trang "Product Details": Xem chi tiết.
+    *   Trang "Cart": Thêm, cập nhật số lượng, xóa sản phẩm.
+*   **Module 3: Thanh toán (Checkout)**
+    *   Quy trình "Proceed to Checkout".
+    *   Nhập địa chỉ giao hàng.
+    *   Thanh toán (Payment).
+    *   Xóa tài khoản (phụ/nếu có).
 
 ### 2.2 Ngoài phạm vi
 *   Kiểm thử hiệu năng (Tải/Chịu tải).
 *   Kiểm thử bảo mật chuyên sâu.
-*   Kiểm thử tự động.
-*   Các tích hợp API bên thứ 3 thực tế (Sử dụng giả lập cho thanh toán).
+*   Kiểm thử tự động (Automation) - *Trừ khi có yêu cầu riêng*.
+*   Các liên kết quảng cáo (Ads) trên trang.
 
 ## 3. PHƯƠNG PHÁP KIỂM THỬ
 
 ### 3.1 Kiểm thử chức năng
-*   Đảm bảo tất cả các yêu cầu hoạt động đúng như mô tả.
+*   Đảm bảo tất cả các luồng hoạt động đúng trên môi trường Live.
 *   Thực hiện kiểm thử các trường hợp hợp lệ và không hợp lệ.
-*   Kiểm thử giá trị biên.
 
 ### 3.2 Kiểm thử giao diện
-*   Kiểm tra tính nhất quán của giao diện, font chữ, màu sắc, bố cục trên trình duyệt Chrome.
-*   Kiểm tra thông báo xác thực.
+*   Kiểm tra tính hiển thị trên trình duyệt Chrome.
+*   Kiểm tra độ phản hồi (Responsive) cơ bản.
 
 ### 3.3 Kiểm thử hồi quy
-*   Thực hiện Kiểm tra khói (Smoke Test) khi có bản dựng mới.
-*   Thực hiện Kiểm thử hồi quy các chức năng bị ảnh hưởng sau khi sửa lỗi.
+*   Thực hiện Kiểm tra khói (Smoke Test) trên các luồng chính.
 
 ## 4. MÔI TRƯỜNG KIỂM THỬ
 
 | Thành phần | Chi tiết |
 | :--- | :--- |
+| **URL Kiểm thử** | **https://automationexercise.com** |
 | **Phần cứng** | Máy tính Windows Tiêu chuẩn |
 | **Hệ điều hành** | Windows 10/11 |
 | **Trình duyệt** | Google Chrome (Phiên bản mới nhất) |
-| **Mạng** | Wifi/LAN ổn định |
-| **Dữ liệu kiểm thử** | Tài khoản giả lập (Người dùng/Quản trị), Dữ liệu sản phẩm mẫu |
-| **Công cụ kiểm thử** | Excel/Google Sheets (quản lý ca kiểm thử), Hệ thống theo dõi lỗi (Giả lập) |
+| **Mạng** | Internet ổn định (Truy cập Web Online) |
+| **Dữ liệu kiểm thử** | Tự tạo tài khoản test (Register New User) |
+| **Công cụ kiểm thử** | Excel/Google Sheets, Chụp màn hình (Snipping Tool) |
 
 ## 5. ĐIỀU KIỆN VÀO / RA
 
 ### 5.1 Điều kiện bắt đầu
-*   Đội phát triển đã triển khai bản dựng lên môi trường Kiểm thử (Staging).
-*   Tài liệu yêu cầu đã được phê duyệt.
-*   Môi trường Kiểm thử đã sẵn sàng và truy cập được.
+*   Website https://automationexercise.com hoạt động bình thường.
+*   Tài liệu yêu cầu (dựa trên chức năng của web) đã được hiểu rõ.
+*   Môi trường mạng ổn định.
 
 ### 5.2 Điều kiện kết thúc
-*   100% Ca kiểm thử mức độ Ưu tiên Cao/Nghiêm trọng đã được thực thi.
-*   Tỷ lệ Đạt các Ca kiểm thử Cao/Nghiêm trọng đạt 100%.
-*   Độ bao phủ yêu cầu > 90%.
-*   Không còn lỗi nghiêm trọng (Nghiêm trọng/Lớn) chưa được sửa (trừ khi có sự chấp thuận của Quản lý dự án).
+*   100% Ca kiểm thử Critical/High đã thực thi.
+*   Báo cáo đầy đủ các lỗi tìm thấy trên trang web thực tế.
 
 ## 6. RỦI RO & BIỆN PHÁP GIẢM THIỂU
 
 | Rủi ro | Mức độ | Biện pháp giảm thiểu |
 | :--- | :--- | :--- |
-| Thiếu hụt thời gian kiểm thử do Dev giao bản dựng trễ | Cao | Ưu tiên kiểm tra các luồng chính và chức năng quan trọng trước. Làm thêm giờ nếu cần thiết. |
-| Yêu cầu thay đổi thường xuyên | Trung bình | Yêu cầu đóng băng chức năng trước giai đoạn kiểm tra cuối. Cập nhật RTM liên tục. |
-| Môi trường kiểm thử không ổn định | Trung bình | Yêu cầu đội Dev hỗ trợ trực trong giai đoạn kiểm tra cao điểm. |
+| Website bảo trì hoặc không truy cập được | Trung bình | Kiểm tra trạng thái web trước khi test. Chụp ảnh màn hình làm bằng chứng. |
+| Dữ liệu test bị xóa định kỳ (do là web demo) | Thấp | Tạo dữ liệu mới mỗi lần test (Luôn bắt đầu bằng Signup). |
+| Quảng cáo che khuất phần tử | Cao | Sử dụng Adblock nếu được phép hoặc test cẩn thận trên Mobile. |
 
 ## 7. VAI TRÒ & TRÁCH NHIỆM
 
-*   **Trưởng nhóm QA**: Lên kế hoạch, xem xét Ca kiểm thử, báo cáo kết quả.
-*   **Nhân viên kiểm thử (QA Tester)**: Thiết kế Ca kiểm thử, thực thi Kiểm thử, Ghi nhận lỗi, Xác minh sửa lỗi.
-*   **Lập trình viên (Developer)**: Sửa lỗi, hỗ trợ môi trường.
+*   **Trưởng nhóm QA**: Lên kế hoạch, xem xét Ca kiểm thử.
+*   **Nhân viên kiểm thử**: Thực thi test trên web Automation Exercise, log bug.
+*   *(Lưu ý: Không có Developer fix bug vì đây là web public)*
 
-## 8. LỊCH TRÌNH KIỂM THỬ GIẢ LẬP
+## 8. LỊCH TRÌNH KIỂM THỬ
 
 | Hoạt động | Ngày bắt đầu | Ngày kết thúc | Trách nhiệm |
 | :--- | :--- | :--- | :--- |
-| Phân tích yêu cầu & Lập Kế hoạch | 01/02/2026 | 02/02/2026 | Trưởng nhóm QA |
-| Thiết kế Ca kiểm thử | 03/02/2026 | 05/02/2026 | Nhóm QA |
-| Thực thi Kiểm thử (Vòng 1) | 06/02/2026 | 08/02/2026 | Nhóm QA |
-| Sửa lỗi & Triển khai | 09/02/2026 | 10/02/2026 | Nhóm Dev |
-| Kiểm thử hồi quy (Vòng 2) | 11/02/2026 | 12/02/2026 | Nhóm QA |
-| Tổng hợp Báo cáo kiểm thử | 13/02/2026 | 13/02/2026 | Trưởng nhóm QA |
+| Tìm hiểu cấu trúc web Automation Exercise | 01/02/2026 | 02/02/2026 | Nhóm QA |
+| Cập nhật Test Case cho phù hợp | 03/02/2026 | 05/02/2026 | Nhóm QA |
+| Thực thi Test trên web thật | 06/02/2026 | 08/02/2026 | Nhóm QA |
+| Tổng hợp Báo cáo & Metrics | 13/02/2026 | 13/02/2026 | Trưởng nhóm QA |
 
 ---
-
+**Phê duyệt bởi**: _________________ (Quản lý dự án)

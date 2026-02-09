@@ -1,14 +1,15 @@
 # Báo cáo lỗi (Bug Reports)
+**Website**: https://automationexercise.com
 
 | Mã Lỗi | Tóm tắt | Các bước tái hiện | Kết quả mong đợi | Kết quả thực tế | Mức độ nghiêm trọng | Độ ưu tiên | Môi trường |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **BUG_CART_001** | Tổng tiền giỏ hàng tính sai khi số lượng > 10 | 1. Thêm SP A (giá 100k) vào giỏ<br>2. Cập nhật số lượng lên 11 | Tổng = 1.100.000đ | Tổng hiển thị = 100.000đ (mất số hàng triệu) | **Nghiêm trọng** | Cao | Windows 10, Chrome 120 |
-| **BUG_CHK_002** | Không thể hoàn tất đơn hàng khi chọn Visa | 1. Vào trang Thanh toán<br>2. Chọn Visa<br>3. Nhập thẻ đúng<br>4. Nhấn Đặt hàng | Thông báo thành công | Nút xoay loading mãi mãi, không phản hồi (Time out) | **Nghiêm trọng** | Cao | Windows 11, Chrome 120 |
-| **BUG_AUTH_003** | Đăng ký thành công với Email thiếu đuôi tên miền | 1. Nhập email "user@gmail"<br>2. Nhập mật khẩu<br>3. Gửi | Báo lỗi định dạng email | Tạo tài khoản thành công | Lớn (Major) | Cao | Windows 10, Firefox |
-| **BUG_PROD_004** | Bộ lọc giá không hoạt động chính xác | 1. Chọn lọc giá 1tr-2tr<br>2. Nhấn Lọc | Chỉ hiện SP 1tr-2tr | Hiển thị cả SP 500k và 5tr | Lớn (Major) | Trung bình | Windows 10, Chrome |
-| **BUG_CART_005** | Nút "Xóa" sản phẩm trong giỏ hàng thỉnh thoảng không nhận | 1. Vào giỏ hàng<br>2. Nhấn biểu tượng thùng rác | Sản phẩm biến mất | Không có phản hồi gì, phải tải lại trang mới mất | Lớn (Major) | Trung bình | MacOS, Safari 17 |
-| **BUG_AUTH_006** | Email quên mật khẩu không được gửi | 1. Chọn Quên mật khẩu<br>2. Nhập email đúng<br>3. Gửi | Nhận được email đặt lại | Không nhận được email nào sau 1 tiếng | Lớn (Major) | Cao | All Browsers |
-| **BUG_UI_007** | Sai chính tả tại chân trang (footer) | 1. Cuộn xuống chân trang<br>2. Đọc văn bản bản quyền | "Copyright 2026" | Hiển thị "Copyright 2025" (Sai năm) | Nhỏ (Minor) | Thấp | All Browsers |
-| **BUG_UI_008** | Mất biểu tượng tại nút "Tìm kiếm" trên điện thoại | 1. Mở web trên giao diện điện thoại<br>2. Kiểm tra thanh tìm kiếm | Hiển thị biểu tượng kính lúp | Biểu tượng bị vỡ hình (ô vuông) | Nhỏ (Minor) | Thấp | iPhone 14, Safari |
-| **BUG_PROD_009** | Ảnh sản phẩm bị méo khi xem chi tiết | 1. Vào trang chi tiết SP<br>2. Nhìn ảnh đại diện | Ảnh tỷ lệ chuẩn | Ảnh bị kéo giãn chiều ngang | Nhỏ (Minor) | Thấp | Windows 10, Chrome |
-| **BUG_CHK_010** | Thứ tự Tab tại form địa chỉ không đúng | 1. Nhấn vào ô Họ tên<br>2. Nhấn phím Tab | Chuyển sang ô Số điện thoại | Nhảy xuống chân trang rồi mới quay lại ô SĐT | Nhỏ (Minor) | Thấp | Windows 10, Edge |
+| **BUG_AUTH_001** | Login thất bại không xóa mật khẩu cũ | 1. Nhập Email đúng, Pass sai<br>2. Nhấn Login<br>3. Quan sát ô Password | Ô Password nên tự động xóa trống để nhập lại | Ô Password vẫn giữ nguyên ký tự cũ (Rủi ro bảo mật nhẹ) | Nhỏ (Minor) | Thấp | Windows 10, Chrome |
+| **BUG_PROD_002** | Tìm kiếm sản phẩm phân biệt hoa thường không nhất quán | 1. Tìm "dress" (thường)<br>2. Tìm "DRESS" (hoa) | Kết quả trả về giống nhau | Kết quả trả về khác nhau (Logic tìm kiếm chưa tối ưu) | Lớn (Major) | Trung bình | Windows 11, Chrome |
+| **BUG_CART_003** | Scroll bị giật khi nhấn "View Cart" từ Popup | 1. Add to cart<br>2. Nhấn "View Cart" trên popup | Chuyển trang mượt mà | Trang bị giật (flicker) một cái rồi mới chuyển | Nhỏ (Minor) | Thấp | MacOS, Safari |
+| **BUG_CHK_004** | Nút "Pay and Confirm" có thể click nhiều lần (Double submission) | 1. Điền thông tin thẻ<br>2. Nhấn nút Pay liên tục 5 lần | Chỉ nhận 1 request, disable nút ngay | Gửi đi 5 request, tạo ra 5 đơn hàng trùng nhau (Giả lập) | Nghiêm trọng | Cao | Windows 10, Firefox |
+| **BUG_AUTH_005** | Form đăng ký nhận Email: chấp nhận email sai format | 1. Footer -> Subscription<br>2. Nhập "abc" (không có @)<br>3. Submit | Báo lỗi định dạng email | Thông báo "Successfully subscribed!" | Lớn (Major) | Trung bình | All Browsers |
+| **BUG_UI_006** | Ảnh quảng cáo (Ads) che mất menu trên Mobile | 1. Mở web trên Mobile (iPhone)<br>2. Vào trang Products | Menu hiển thị rõ ràng | Một banner quảng cáo google che mất 1 phần menu | Lớn (Major) | Cao | iPhone 14, Safari |
+| **BUG_PROD_007** | Tiêu đề trang Product Detail bị lỗi font | 1. Vào xem chi tiết 1 SP bất kỳ | Font chữ đồng bộ | Tiêu đề SP bị lỗi font (Times New Roman thay vì Roboto) | Nhỏ (Minor) | Thấp | Windows 10, Edge |
+| **BUG_CART_008** | Không cập nhật số lượng khi nhập số thập phân | 1. Vào Cart<br>2. Nhập Quantity = 2.5<br>3. Click ra ngoài | Báo lỗi hoặc làm tròn | Hệ thống tính tiền theo giá x 2.5 (Sai logic nghiệp vụ) | Nghiêm trọng | Trung bình | Windows 10, Chrome |
+| **BUG_UI_009** | Nút "Scroll Up" thỉnh thoảng không hoạt động | 1. Cuộn xuống cuối trang<br>2. Nhấn nút mũi tên lên | Cuộn lên đầu trang | Không có phản hồi gì | Nhỏ (Minor) | Thấp | Windows 11, Chrome |
+| **BUG_CHK_010** | Tải hóa đơn về bị lỗi định dạng tên file | 1. Payment Success<br>2. Download Invoice | Tên file: invoice.txt | Tên file: inv_@#$%.txt (Lỗi encoding) | Nhỏ (Minor) | Thấp | Windows 10, Chrome |

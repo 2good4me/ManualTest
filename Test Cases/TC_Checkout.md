@@ -1,14 +1,15 @@
 # Ca Kiểm Thử - Module Thanh toán
+**Website**: https://automationexercise.com
 
 | Mã TC | Tiêu đề | Điều kiện trước | Các bước thực hiện | Kết quả mong đợi | Độ ưu tiên | Loại |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **TC_CHK_001** | Truy cập trang thanh toán - Giỏ hàng trống | Giỏ hàng rỗng | 1. Nhấn nút "Thanh toán" | Hệ thống chặn, yêu cầu mua hàng trước | Trung bình | Không hợp lệ |
-| **TC_CHK_002** | Thanh toán thành công - COD | Giỏ có hàng, đã đăng nhập | 1. Nhập địa chỉ<br>2. Chọn COD (Tiền mặt)<br>3. Nhấn "Đặt hàng" | Thông báo đặt hàng thành công, tạo Mã đơn hàng | Nghiêm trọng | Hợp lệ |
-| **TC_CHK_003** | Thanh toán - Bỏ trống địa chỉ | Tại trang Thanh toán | 1. Xóa trống địa chỉ<br>2. Nhấn "Đặt hàng" | Báo lỗi bắt buộc nhập địa chỉ | Cao | Không hợp lệ |
-| **TC_CHK_004** | Thanh toán - Chọn phương thức Visa giả lập | Giỏ có hàng | 1. Nhập địa chỉ<br>2. Chọn Visa<br>3. Nhập thẻ test 4242...<br>4. Đặt hàng | Thanh toán thành công | Cao | Hợp lệ |
-| **TC_CHK_005** | Thanh toán - Thẻ Visa hết hạn/sai | Giỏ có hàng | 1. Chọn Visa<br>2. Nhập thẻ sai<br>3. Đặt hàng | Báo lỗi giao dịch thất bại | Trung bình | Không hợp lệ |
-| **TC_CHK_006** | Hủy đơn hàng (nếu có chức năng) | Đã đặt hàng thành công | 1. Vào Lịch sử đơn hàng<br>2. Chọn đơn "Chờ xử lý"<br>3. Nhấn Hủy | Trạng thái đơn đổi sang "Đã hủy" | Trung bình | Hợp lệ |
-| **TC_CHK_007** | Kiểm tra lịch sử đơn hàng | Đã mua hàng | 1. Vào trang cá nhân -> Lịch sử | Danh sách đơn hàng hiển thị đúng ngày, tổng tiền | Cao | Hợp lệ |
-| **TC_CHK_008** | Xem chi tiết đơn hàng lịch sử | Tại danh sách đơn hàng | 1. Nhấn vào mã đơn | Hiển thị chi tiết SP đã mua trong đơn đó | Thấp | Hợp lệ |
-| **TC_CHK_009** | Kiểm tra phí vận chuyển | Trang thanh toán | 1. Chọn Tỉnh/Thành A<br>2. Chọn Tỉnh/Thành B | Phí vận chuyển thay đổi tương ứng (nếu có) | Trung bình | Hợp lệ |
-| **TC_CHK_010** | Thanh toán khi Phiên làm việc hết hạn | Đang ở trang Thanh toán | 1. Chờ hết phiên (session timeout)<br>2. Nhấn "Đặt hàng" | Chuyển hướng về trang Đăng nhập, không tạo đơn hàng rác | Cao | Bảo mật |
+| **TC_CHK_001** | Thanh toán thành công (Luồng đầy đủ) | Đã Login, Giỏ có hàng | 1. Vào Cart -> Nhấn "Proceed To Checkout"<br>2. Kiểm tra Address & Review Order<br>3. Nhập Comment (nếu cần)<br>4. Nhấn "Place Order"<br>5. Nhập Payment: Name on Card, Card Number, CVC, Expiration<br>6. Nhấn "Pay and Confirm Order" | Thông báo "ORDER PLACED!" / "Congratulations! Your order has been confirmed!" | Nghiêm trọng | Hợp lệ |
+| **TC_CHK_002** | Thanh toán khi chưa đăng nhập | Chưa Login, Giỏ có hàng | 1. Vào Cart -> Nhấn "Proceed To Checkout" | Hiển thị Popup "Register / Login" để tiếp tục | Cao | Không hợp lệ |
+| **TC_CHK_003** | Kiểm tra thông tin địa chỉ giao hàng | Đã Login | 1. Tại trang Checkout (Review Order)<br>2. So sánh "Delivery Address" với thông tin đã đăng ký | Thông tin (Tên, SĐT, Địa chỉ) khớp chính xác | Cao | Hợp lệ |
+| **TC_CHK_004** | Xóa sản phẩm tại bước Review Order | Trang Checkout | 1. Quan sát danh sách sản phẩm<br>2. Quay lại Cart để xóa SP | Hệ thống cập nhật lại danh sách Review Order sau khi xóa | Trung bình | Hợp lệ |
+| **TC_CHK_005** | Thanh toán - Bỏ trống thông tin thẻ | Trang Payment | 1. Bỏ trống các trường Card<br>2. Nhấn "Pay and Confirm Order" | Báo lỗi hoặc không cho submit (HTML5 validation) | Cao | Không hợp lệ |
+| **TC_CHK_006** | Tải hóa đơn (Download Invoice) | Sau khi đặt hàng thành công | 1. Tại màn hình "Order Placed"<br>2. Nhấn "Download Invoice" | Tải xuống file hóa đơn (.txt hoặc .pdf) thành công | Trung bình | Hợp lệ |
+| **TC_CHK_007** | Tiếp tục mua sắm sau khi thanh toán | Màn hình Order Placed | 1. Nhấn nút "Continue" | Quay về trang chủ để mua sắm tiếp | Thấp | Hợp lệ |
+| **TC_CHK_008** | Kiểm tra tổng tiền đơn hàng (Total Amount) | Trang Payment | 1. Kiểm tra số tiền hiển thị "Total Amount" | Phải khớp với Total Amount trong Giỏ hàng trước đó | Nghiêm trọng | Hợp lệ |
+| **TC_CHK_009** | Nhập sai định dạng thẻ (Test Validation) | Trang Payment | 1. Nhập Card Number có chữ cái<br>2. Nhấn Pay | Hệ thống báo lỗi hoặc không cho nhập chữ vào ô số | Trung bình | Không hợp lệ |
+| **TC_CHK_010** | Quay lại (Back) khi đang thanh toán | Trang Payment | 1. Nhấn nút Back của trình duyệt | Quay lại trang Cart hoặc Checkout mà không mất session | Thấp | Giao diện |

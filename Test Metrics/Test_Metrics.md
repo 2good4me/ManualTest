@@ -1,29 +1,27 @@
 # Chỉ số kiểm thử (Test Metrics)
+**Dự án**: Automation Exercise
 
 ## 1. Tỷ lệ thực thi Kiểm thử
-Công thức: `(Số TC đã chạy / Tổng số TC) * 100%`  
-Tính toán: `(45 / 45) * 100%`  
-**Kết quả: 100%**
+`100%` (45/45 Test Case đã được thực thi)
 
-## 2. Tỷ lệ Đạt/Trượt
-*   **Tỷ lệ Đạt (Pass Rate)**: `(35 / 45) * 100%` = **77.8%**
-*   **Tỷ lệ Trượt (Fail Rate)**: `(10 / 45) * 100%` = **22.2%**
+## 2. Tỷ lệ Đạt/Trượt (Pass/Fail Rate)
+*   **Pass**: 35 Test Case (77.8%)
+*   **Fail**: 10 Test Case (22.2%)
 
-## 3. Mật độ lỗi theo Module
-| Module | Số lượng Ca kiểm thử | Số lượng Lỗi tìm thấy | Mật độ (Lỗi/TC) |
-| :--- | :--- | :--- | :--- |
-| Xác thực (Authentication) | 15 | 2 (Bug 003, 006) | 13.3% |
-| Sản phẩm & Giỏ hàng | 20 | 5 (Bug 001, 004, 005, 009, UI_007) | 25% |
-| Thanh toán (Checkout) | 10 | 3 (Bug 002, 008, 010) | 30% |
+## 3. Mật độ lỗi theo Module (Defect Density)
+| Module | Số lượng TC | Số lượng Lỗi (Bugs) | Danh sách lỗi | Mật độ |
+| :--- | :--- | :--- | :--- | :--- |
+| **Xác thực (Auth)** | 15 | 2 | BUG_AUTH_001, BUG_AUTH_005 | 13.3% |
+| **Sản phẩm & Giỏ (Prod/Cart)** | 20 | 5 | BUG_PROD_002, BUG_CART_003, BUG_PROD_007, BUG_CART_008, BUG_UI_009 | 25% |
+| **Thanh toán (Checkout)** | 10 | 3 | BUG_CHK_004, BUG_UI_006*, BUG_CHK_010 | 30% |
+*(Ghi chú: BUG_UI_006 thuộc về giao diện chung nhưng phát hiện khi test luồng mobile)*
 
-## 4. Phân bố mức độ nghiêm trọng
-| Mức độ | Số lượng | Tỷ lệ % |
+## 4. Phân bố mức độ nghiêm trọng (Severity)
+| Mức độ | Số lượng | Mã lỗi |
 | :--- | :--- | :--- |
-| **Nghiêm trọng (Critical)** | 2 | 20% |
-| **Lớn (Major)** | 4 | 40% |
-| **Nhỏ (Minor)** | 4 | 40% |
+| **Nghiêm trọng (Critical)** | 2 | BUG_CHK_004, BUG_CART_008 |
+| **Lớn (Major)** | 3 | BUG_PROD_002, BUG_AUTH_005, BUG_UI_006 |
+| **Nhỏ (Minor)** | 5 | BUG_AUTH_001, BUG_CART_003, BUG_PROD_007, BUG_UI_009, BUG_CHK_010 |
 
-## 5. Độ bao phủ yêu cầu
-Công thức: `(Số yêu cầu được kiểm tra / Tổng số yêu cầu) * 100%`  
-Tính toán: `(16 / 16) * 100%`  
-**Kết quả: 100%**
+## 5. Độ bao phủ yêu cầu (Requirement Coverage)
+`100%` (16/16 Yêu cầu chức năng đã có Test Case ánh xạ)
